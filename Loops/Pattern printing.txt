@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main() {
+    char input[100];
+    printf("Enter the input string: ");
+    scanf("%s", input);
+    for (int i = 0; input[i] != '\0'; i++) {
+        char currentChar = input[i];
+        if (currentChar >= 'a' && currentChar <= 'z') {
+            // If the character is a lowercase letter
+            int count = input[i + 1] - '0';
+            for (int j = 0; j < count; j++) {
+                printf("%c", currentChar);
+            }
+        }
+    }
+    printf("\n");
+    return 0;
+}
