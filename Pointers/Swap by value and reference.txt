@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void swapByValue(int x, int y) {
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+    printf("After swapping (Call By Value): x = %d, y = %d\n", x, y);
+}
+
+int main() {
+    int a = 5, b = 10;
+    printf("Before swapping: a = %d, b = %d\n", a, b);
+    swapByValue(a, b);
+    printf("After swapping (Main Function): a = %d, b = %d\n", a, b);
+    return 0;
+}
+
+#include <stdio.h>
+void swapByReference(int *x, int *y) {
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+    printf("After swapping (Call By Reference): x = %d, y = %d\n", *x, *y);
+}
+int main() {
+    int a = 5, b = 10;
+    printf("Before swapping: a = %d, b = %d\n", a, b);
+    swapByReference(&a, &b);
+    printf("After swapping : a = %d, b = %d\n", a, b);
+    return 0;
+}
