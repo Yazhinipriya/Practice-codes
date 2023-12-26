@@ -1,0 +1,124 @@
+1a.Get and display the input
+
+import java.util.Scanner;
+
+public class ReadInteger {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter an integer: ");
+        int enteredInteger = scanner.nextInt();
+
+        System.out.println("Entered Integer: " + enteredInteger);
+
+        scanner.close();
+    }
+}
+
+1b. Calculate and Display Average of Floating-Point Numbers
+
+import java.util.Scanner;
+
+public class CalculateAverage {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first floating-point number: ");
+        float num1 = scanner.nextFloat();
+
+        System.out.print("Enter the second floating-point number: ");
+        float num2 = scanner.nextFloat();
+
+        float average = (num1 + num2) / 2;
+
+        System.out.printf("Average: %.2f\n", average);
+
+        scanner.close();
+    }
+}
+
+2. Simple Calculator
+
+
+import java.util.Scanner;
+
+public class BasicCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        double result = 0;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    System.exit(0);
+                }
+                break;
+            default:
+                System.out.println("Error: Invalid operator");
+                System.exit(0);
+        }
+
+        System.out.println("Result: " + result);
+
+        scanner.close();
+    }
+}
+
+
+3. Happy Number Check
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HappyNumber {
+    public static void main(String[] args) {
+        int n = 19; 
+
+        boolean isHappy = isHappyNumber(n);
+
+        System.out.println(isHappy);
+    }
+
+    public static boolean isHappyNumber(int n) {
+        Set<Integer> seen = new HashSet<>();
+
+        while (n != 1 && !seen.contains(n)) {
+            seen.add(n);
+            n = calculateSumOfSquares(n);
+        }
+
+        return n == 1;
+    }
+
+    public static int calculateSumOfSquares(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
+    }
+}
