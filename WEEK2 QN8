@@ -1,0 +1,18 @@
+import java.util.*;
+public class stringconcat
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc= new Scanner(System.in);
+	    System.out.print("ENTER THE STR1");
+	    String str1=sc.nextLine();
+	    
+	    System.out.print("ENTER THE STR2");
+	    String str2=sc.nextLine();
+	    
+	    if(str1.charAt(str1.length()-1)==str2.charAt(0))
+	    {
+	        System.out.println(str1.substring(0,str1.length()-1)+str2.substring(1));
+	    } 
+	}
+}
