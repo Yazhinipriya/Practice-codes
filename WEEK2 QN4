@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class qn4 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the size :");
+        int n = in.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter the elements for the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum = sum + arr[i];
+        }
+        if (sum % 2 != 0)
+            System.out.println("Not cool");
+        else {
+            if (f(sum / 2, arr, n - 1) == true)
+                System.out.println("COOL");
+            else
+                System.out.println("Not cool");
+        }
+
+    }
+
+    public static boolean f(int val, int[] arr, int ind) {
+        if (val == 0)
+            return true;
+        if (ind == 0)
+            return val == arr[ind];
+        boolean not = f(val, arr, ind - 1);
+        boolean pick = false;
+        if (val >= arr[ind])
+            pick = f(val - arr[ind], arr, ind - 1);
+        return pick || not;
+    }
+}
